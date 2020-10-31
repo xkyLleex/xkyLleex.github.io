@@ -1,0 +1,17 @@
+.main{
+    width: 100%;
+}
+.main div{
+    margin-top: 30px;
+}
+#ans{
+    color:red;
+}
+@media only screen and (max-width: 769px){
+    #randomL{
+        width: 120px;
+    }
+    #randomR{
+        width: 120px;
+    }
+}

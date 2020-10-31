@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <title>WebSiteTool-random</title>
+    <meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css_file/index.css"></link>
+    <link rel="stylesheet" href="css_file/random.css"></link>
+    <script src="js_file/index.js"></script>
+    <script src="js_file/random.js"></script>
+</head>
+<body>
+    <div class="title"><a href="index.html">WebSiteTool</a></div>
+    <div class="main">
+        <div>隨機抽數(無法用負數)</div>
+        <div style="margin-top: 10px;">
+            <input autofocus id="randomL" type="number" placeholder="請輸入一數"> TO
+            <input id="randomR" type="number" placeholder="請輸入另一數"> 之間
+        </div>  
+        <div>
+            次數：<input id="count" type="number" placeholder="抽幾次">
+            <input id="check_re" type="checkbox">可重複
+        </div>
+        <div><input id="pick" type="button" value="抽數" onclick="pickfunc()"></div>
+        <div id="ans">Output:</div>
+    </div>
+    <div class="bottom">Author : kyL_lee</div>
+</body>
+</html>

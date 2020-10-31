@@ -1,0 +1,24 @@
+body{
+    background-color: black;
+    text-align: center;
+    color: white;
+}
+a{
+    text-decoration: none;
+    color:white;
+}
+.title{
+    font-size: 400%;
+}
+.list-style div{
+    margin-top: 30px;
+}
+.bottom{
+    position: fixed;
+    bottom: 0;
+}
+@media only screen and (max-width: 769px){
+    .title{
+        font-size: 300%;
+    }
+}
