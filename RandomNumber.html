@@ -4,6 +4,9 @@
     <title>RandomNumber</title>
     <meta CHARSET="utf-8" name="viewport" content="width-device-width,initial-scale=1">
     <style>
+        body{
+            user-select: none;
+        }
         .title{
             display: block;
             width: fit-content;
@@ -24,18 +27,19 @@
         .button:hover{
             background-color: orange;
         }
-        #number_list{
+        .number_list{
             display: flex;
             flex-direction: row;
             justify-content: center;
             flex-wrap: wrap;
         }
-        #number_list div{
+        .number_list div{
             margin: 5px;
             text-align: center;
             padding: 5px;
             border: 1px rgb(0, 0, 100) solid;
             border-radius: 3px;
+            background-color: #FFFFFF;
         }
         .select{
             display: flex;
@@ -52,65 +56,100 @@
             margin: auto 5px;
             width: 15%;
         }
+        .center_text{
+            text-align: center;
+            margin: 20px;
+            background-color: rgba(0, 124, 124, 0.75);
+        }
     </style>
     <script>
-        function random(){
+        var temp;
+        var number_list = [];
+        function Create_Number_List(){
             var min = parseInt(document.getElementById("start_number").value);
             var max = parseInt(document.getElementById("end_number").value);
-            var need = parseInt(document.getElementById("get_number").value);
-            var repeat = document.getElementById("isRepeat").checked;
-            var temp;
             if(max < min){  // swap
                 temp = max;
                 max = min;
                 min = temp;
             }
+            number_list = [];
+            while(min <= max){   // init number array
+                number_list.push(min);
+                min++;
+            }
+            push_div(number_list, "number_list", 1);
+        }
 
-            if(!repeat && max - min + 1 < need){   // check max between min
+        function Get_Random_Number(){
+            var need = parseInt(document.getElementById("get_number").value);
+            var repeat = document.getElementById("isRepeat").checked;
+
+            if(!repeat && number_list.length < need){   // check max between min
                 alert("取的數值不符合其範圍");
             }else{
+                var temp_number_list = Array.from(number_list);
+                temp_number_list.push(0); // use for random number error
                 var result_list = [];
                 if(repeat){ // repeat number
                     while(need-- > 0){
-                        result_list.push(Math.floor(Math.random() * max) + min);
+                        temp = Math.floor(Math.random() * (temp_number_list.length - 1));
+                        result_list.push(temp_number_list[temp]);
                     }
-                }else{      // can't repeat number
-                    var number_list = [];
-                    temp = max
-                    while(temp >= min){   // init number array
-                        number_list.push(temp);
-                        temp--
-                    }
-                    number_list.push(0); // use for random number error   
+                }else{      // no repeat number
                     while(need-- > 0){      // get number from number array
-                        temp = Math.floor(Math.random() * (number_list.length - 1));
-                        result_list.push(number_list[temp]);
-                        number_list.splice(temp, 1);
+                        temp = Math.floor(Math.random() * (temp_number_list.length - 1));
+                        result_list.push(temp_number_list[temp]);
+                        temp_number_list.splice(temp, 1);
                     }
                 }
-                push_div(result_list);
+                //console.log(number_list);
+                push_div(result_list, "result_list", 0);
             }
         }
-
-        function push_div(number_list){
-            var div_list = "";
+        
+        var div_list = "";
+        function push_div(number_list, list_id, type){
+            div_list = "";
             number_list.forEach(element => {
-                div_list += "<div>" + element + "</div>"
+                if(type == 0)
+                    div_list += "<div>" + element + "</div>";
+                else
+                    div_list += "<div id='" + element + "' onclick=Switch_Status(" + element + ")>" + element + "</div>";
             });
-            document.getElementById("number_list").innerHTML = div_list;
+            document.getElementById(list_id).innerHTML = div_list;
+        }
+
+        function Switch_Status(number){
+            if(number_list.indexOf(number) != -1){
+                document.getElementById(number).style.backgroundColor = "#ff4040";
+                number_list.splice(number_list.indexOf(number), 1);
+            }else{
+                document.getElementById(number).style.backgroundColor = "#ffffff";
+                number_list.push(number);
+            }
+            console.log(number_list);
         }
     </script>
 </head>
 <body>
 	<div class="title">RandomNumber</div>
-    <div id="number_list">
-        <div>抽到的數字會放此</div>
+    <div class="center_text">|Step 1| 按下產生數字列</div>
+    <div style="text-align: center;margin-bottom: 20px;">介於<input class="InputNumber" type="number" id="start_number" value="0">到<input class="InputNumber" type="number" id="end_number" value="10">之間(包含)</div>
+    <div class="button" onclick="Create_Number_List()">產生數字列</div>
+    <div class="center_text">|Step 2| 點選不需要的數字</div>
+    <div id="number_list" class="number_list">
+        請先點選按鈕
     </div>
-    <div style="text-align: center;margin-top: 20px;">介於<input class="InputNumber" type="number" id="start_number" value="0">到<input class="InputNumber" type="number" id="end_number" value="10">之間(包含)</div>
+    <div class="center_text">|Step 3| 設定取數及是否重複</div>
     <div class="select">
         <div>取<input class="InputNumber" type="number" id="get_number" value="3">個</div>
         <div><input type="checkbox" id="isRepeat">數值是否重複</div>
     </div>
-    <div class="button" onclick="random()">開始抽取亂數</div>
+    <div class="center_text">|Step 4| 按下抽取亂數</div>
+    <div class="button" onclick="Get_Random_Number()">抽取亂數</div>
+    <div id="result_list" class="number_list" style="margin-top: 15px;">
+        請先點選按鈕
+    </div>
 </body>
 </html>
