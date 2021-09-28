@@ -58,6 +58,7 @@
             var min = parseInt(document.getElementById("start_number").value);
             var max = parseInt(document.getElementById("end_number").value);
             var need = parseInt(document.getElementById("get_number").value);
+            var repeat = document.getElementById("isRepeat").checked;
             var temp;
             if(max < min){  // swap
                 temp = max;
@@ -65,11 +66,9 @@
                 min = temp;
             }
 
-            if(max - min + 1 < need){   // check max between min
+            if(!repeat && max - min + 1 < need){   // check max between min
                 alert("取的數值不符合其範圍");
             }else{
-                var repeat = document.getElementById("isRepeat").checked;
-
                 var result_list = [];
                 if(repeat){ // repeat number
                     while(need-- > 0){
