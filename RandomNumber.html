@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <title>RandomNumber</title>
+    <meta CHARSET="utf-8" name="viewport" content="width-device-width,initial-scale=1">
+    <style>
+        .title{
+            display: block;
+            width: fit-content;
+            margin: auto;
+            margin-bottom: 20px;
+            font-size: xx-large;
+        }
+        .button{
+            display: block;
+            width: fit-content;
+            margin: auto;
+            margin-top: 20px;;
+            border-radius: 2px;
+            border: 1px rgb(61, 61, 61) solid;
+            padding: 5px;
+            background-color: green;
+        }
+        .button:hover{
+            background-color: orange;
+        }
+        #number_list{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        #number_list div{
+            margin: 5px;
+            text-align: center;
+            padding: 5px;
+            border: 1px rgb(0, 0, 100) solid;
+            border-radius: 3px;
+        }
+        .select{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 10px auto;
+        }
+        .select div{
+            flex: 1;
+            text-align: center;
+        }
+        .InputNumber{
+            margin: auto 5px;
+            width: 15%;
+        }
+    </style>
+    <script>
+        function random(){
+            var min = parseInt(document.getElementById("start_number").value);
+            var max = parseInt(document.getElementById("end_number").value);
+            var need = parseInt(document.getElementById("get_number").value);
+            var temp;
+            if(max < min){  // swap
+                temp = max;
+                max = min;
+                min = temp;
+            }
+
+            if(max - min + 1 < need){   // check max between min
+                alert("取的數值不符合其範圍");
+            }else{
+                var repeat = document.getElementById("isRepeat").checked;
+
+                var result_list = [];
+                if(repeat){ // repeat number
+                    while(need-- > 0){
+                        result_list.push(Math.floor(Math.random() * max) + min);
+                    }
+                }else{      // can't repeat number
+                    var number_list = [];
+                    temp = max
+                    while(temp >= min){   // init number array
+                        number_list.push(temp);
+                        temp--
+                    }
+                    number_list.push(0); // use for random number error   
+                    while(need-- > 0){      // get number from number array
+                        temp = Math.floor(Math.random() * (number_list.length - 1));
+                        result_list.push(number_list[temp]);
+                        number_list.splice(temp, 1);
+                    }
+                }
+                push_div(result_list);
+            }
+        }
+
+        function push_div(number_list){
+            var div_list = "";
+            number_list.forEach(element => {
+                div_list += "<div>" + element + "</div>"
+            });
+            document.getElementById("number_list").innerHTML = div_list;
+        }
+    </script>
+</head>
+<body>
+	<div class="title">RandomNumber</div>
+    <div id="number_list">
+        <div>抽到的數字會放此</div>
+    </div>
+    <div style="text-align: center;margin-top: 20px;">介於<input class="InputNumber" type="number" id="start_number" value="0">到<input class="InputNumber" type="number" id="end_number" value="10">之間(包含)</div>
+    <div class="select">
+        <div>取<input class="InputNumber" type="number" id="get_number" value="3">個</div>
+        <div><input type="checkbox" id="isRepeat">數值是否重複</div>
+    </div>
+    <div class="button" onclick="random()">開始抽取亂數</div>
+</body>
+</html>
