@@ -1,0 +1,9 @@
+#Game_Canvas{
+    z-index: 50;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: aliceblue;
+    display: block;
+    margin: 20px auto;
+    animation: AnimationIn 2s linear 0s;
+}
