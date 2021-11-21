@@ -88,7 +88,7 @@ Play_Button();
 
 function Play_Button(){
     radiusRect(Canvas_width / 2 - 100, Canvas_height / 2 - 50, 200, 100, 5, '#BBBBBB');
-    context.font = "30px Comic Sans MS";
+    context.font = "30px Arial";
     context.fillStyle = "Blue";
     context.textAlign = "center";
     context.fillText("Play", Canvas_width / 2, Canvas_height / 2 + 10);
@@ -96,7 +96,7 @@ function Play_Button(){
 
 function Continue_Button(){
     radiusRect(Canvas_width / 2 - 100, Canvas_height / 2 - 50, 200, 100, 5, '#888888');
-    context.font = "30px Comic Sans MS";
+    context.font = "30px Arial";
     context.fillStyle = "Green";
     context.textAlign = "center";
     context.fillText("Continue", Canvas_width / 2, Canvas_height / 2 + 10);
@@ -104,7 +104,7 @@ function Continue_Button(){
 
 function Retry_Button(){
     radiusRect(Canvas_width / 2 - 100, Canvas_height / 2 - 50, 200, 100, 5, '#666666');
-    context.font = "30px Comic Sans MS";
+    context.font = "30px Arial";
     context.fillStyle = "Orange";
     context.textAlign = "center";
     context.fillText("Try Again?", Canvas_width / 2, Canvas_height / 2 + 10);
@@ -254,18 +254,18 @@ requestAnimationFrame(Timer);
 function TopText(t){
     if(Play_Continue_GO == 2){
         radiusRect(10, 10, 50, 50, 5, '#BBBBBB');
-        context.font = "30px Comic Sans MS";
+        context.font = "30px Arial";
         context.fillStyle = "red";
-        context.fillText("||", 21, 45);
+        context.fillText("||", 27, 45);
     }
     if(H_BigThen_W){
-        context.font = "20px Comic Sans MS";
+        context.font = "20px Arial";
         context.fillStyle = "green";
         context.fillText('Time:' + (t / 1000).toFixed(2), 100, 25);
         context.fillStyle = "blue";
         context.fillText("SCORE:" + score, 100, 55);
     }else{
-        context.font = "30px Comic Sans MS";
+        context.font = "30px Arial";
         context.fillStyle = "green";
         context.fillText('Time:' + (t / 1000).toFixed(2), 100, 45);
         context.fillStyle = "blue";
