@@ -42,7 +42,7 @@ var walls = [];
 // Wall Set
 function Init_Walls(){
     var Amount = Math.floor(Math.random() * 10) + 5;
-    var last_x = 0;
+    var last_x = 500;
     walls.forEach((item, index) => {
         if(item.x_pos > last_x)
             last_x = item.x_pos;
@@ -51,14 +51,14 @@ function Init_Walls(){
     walls.push({
         width: Canvas_width / Amount,
         Road: Math.floor(Math.random() * 7) + 2,
-        x_pos: 500 + last_x
+        x_pos: last_x + 50 * Amount + 500
     });
     for(var i = 1; i < 10 ; i++){
         Amount = Math.floor(Math.random() * 10) + 5;
         walls.push({
             width: Canvas_width / Amount,
             Road: Math.floor(Math.random() * 7) + 2,
-            x_pos: walls[i - 1].x_pos + Math.floor(Math.random() * 1000) + 500 + last_x
+            x_pos: walls[walls.length - 1].x_pos + Math.floor(Math.random() * Canvas_width) + 400 + 50 * Amount
         });
     }
     //console.log(walls);
@@ -317,5 +317,5 @@ function Walls_Draw(){
     if(walls.length < 5){
         Init_Walls();
     }
-    console.log(Now_X_Position);
+    //console.log(Now_X_Position);
 }
