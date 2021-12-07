@@ -318,7 +318,7 @@ function Charactor(){
     context.fillStyle = "orange";
     context.fillRect(10, C_Data.NCP, C_Data.Width, C_Data.Height);
     base_image = new Image();
-    base_image.src = 'picture/cow.png';
+    base_image.src = 'Picture/cow.png';
     context.drawImage(base_image, 10, C_Data.NCP, C_Data.Width, C_Data.Height);
 }
 
