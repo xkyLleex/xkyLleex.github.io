@@ -19,5 +19,5 @@ function Canvas_Reset(){
 //<script src="JavaScript/Firework.js" type="text/javascript"></script>
 
 function HBM_Play(){
-    document.location.href = './HBM_Game.html';
+    document.location.href = './e85a4a5c0bbf11ad0f06c17f17cec248ddcdc928051d7d5ec66f051b9437f0ef.html';
 }
