@@ -17,7 +17,7 @@ function Canvas_Reset(){
     script.src= 'JavaScript/Firework.js';  //要載入的js
     head.appendChild(script); 
 }
-
+/*
 function IsComeFrom(){
     var send = location.search.replace('?', '');
     if(send == 'PassTheLevel_2'){
@@ -28,3 +28,4 @@ function IsComeFrom(){
         document.getElementById('en-Content').innerHTML = 'Can you stop peeking?';
     }
 }
+*/
