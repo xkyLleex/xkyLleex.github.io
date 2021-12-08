@@ -17,7 +17,7 @@ function Canvas_Reset(){
     script.src= 'JavaScript/Firework.js';  //要載入的js
     head.appendChild(script); 
 }
-//Github page does not allow FLoC
+
 function IsComeFrom(){
     var send = location.search.replace('?', '');
     if(send == 'PassTheLevel_2'){
