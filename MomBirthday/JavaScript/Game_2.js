@@ -136,7 +136,7 @@ function EventDown(e){
         var x = Canvas_width / 2 - 100;
         var y = Canvas_height / 2 + 50;
         if(mouse.x >= x && mouse.x <= x + 200 && mouse.y >= y && mouse.y <= y + 100){
-            document.location.href = './faa330bd7195ce433b0359ff56db1a8c54eeded536a30347e243ef76da999a86.html';
+            document.location.href = './faa330bd7195ce433b0359ff56db1a8c54eeded536a30347e243ef76da999a86.html?PassTheLevel_2';
         }
     }else{                              // when player is not playing
         var x = Canvas_width / 2 - 100;
