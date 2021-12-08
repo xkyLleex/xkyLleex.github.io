@@ -17,7 +17,7 @@ canvas.addEventListener('mousemove', function (e) {
 // Click Function
 canvas.addEventListener('click', function (e) {
     mouse = { x: e.offsetX, y: e.offsetY };
-    console.log(mouse);
+    //console.log(mouse);
     var mx = mouse.x - (Canvas_width / 2);
     var my = mouse.y - Canvas_height;
     var ball = {
