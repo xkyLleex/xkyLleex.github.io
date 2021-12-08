@@ -16,15 +16,15 @@ var TouchWall = false;
 var Canvas_width = canvas.getBoundingClientRect().width;
 var Canvas_height = canvas.getBoundingClientRect().height;
 
-// Charactor Data
+// Character Data
 var C_Data = {
-    NCP : Canvas_height / 2, // Now Charactor Position
-    Width: 60,               // Charactor Width
-    Height: 60,              // Charactor Height
-    Eyes_X: 50,              // Charactor X position
-    Eye_radius: 5,           // Charactor Eyes radius
-    First_Eye: 15,           // Charactor First Eye position
-    Eyes_between: 30         // Charactor Distance between two eye
+    NCP : Canvas_height / 2, // Now Character Position
+    Width: 60,               // Character Width
+    Height: 60,              // Character Height
+    Eyes_X: 50,              // Character X position
+    Eye_radius: 5,           // Character Eyes radius
+    First_Eye: 15,           // Character First Eye position
+    Eyes_between: 30         // Character Distance between two eye
 };
 
 if(Canvas_width < Canvas_height){
@@ -58,7 +58,7 @@ function Init_Walls(){
         Amount = Math.floor(Math.random() * 10) + 5;
         walls.push({
             width: Canvas_width / Amount,
-            Road: Math.floor(Math.random() * 7) + 2,
+            Road: Math.floor(Math.random() * 6) + 2,
             x_pos: walls[walls.length - 1].x_pos + Math.floor(Math.random() * Canvas_width) + 400 + 50 * Amount
         });
     }
@@ -226,7 +226,7 @@ function Timer(t){
         }
         TopText(t - time + Sum_Time);
 
-         // Charactor
+         // Character
         if(IsMouseDown || IsKeyDown){
             if(IsMouseDown){
                 if(mouse.y > C_Data.NCP + C_Data.Height / 2){ // down
@@ -237,13 +237,13 @@ function Timer(t){
             }
             if(IsUp){
                 if(C_Data.NCP - 3 > 65)
-                    C_Data.NCP -= 3;
+                    C_Data.NCP -= 4;
             }else{
                 if(C_Data.NCP + 3 < Canvas_height - C_Data.Height - 5)
-                    C_Data.NCP += 3;
+                    C_Data.NCP += 4;
             }
         }
-        Charactor();
+        Character();
         if(TouchWall){
             TouchWall = false;
             Play_Continue_GO = 3;
@@ -251,7 +251,7 @@ function Timer(t){
         if(score >= 10){
             Play_Continue_GO =  4;
         }
-        Now_X_Position += 2 * (Math.floor(score / 3) / 2 + 2);
+        Now_X_Position += 2 * (Math.floor(score / 5) / 2 + 2);
     }else if(Play_Continue_GO == 3){ // when player lose
         if(IsTimeContinue){
             Sum_Time += t - time;
@@ -302,8 +302,8 @@ function TopText(t){
 
 
 
-// Charactor Draw
-function Charactor(){
+// Character Draw
+function Character(){
     /*
     context.fillStyle = "orange";
     context.fillRect(10, C_Data.NCP, C_Data.Width, C_Data.Height);

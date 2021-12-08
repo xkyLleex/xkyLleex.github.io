@@ -1,5 +1,15 @@
 window.onload = function(){
     Canvas_Reset();
+    var Display_Exp = false;
+    document.getElementById('Display_ExpBtn').addEventListener('click', function(){
+        if(Display_Exp){
+            document.getElementById('Display_Exp').style.display = 'none';
+            Display_Exp = false;
+        }else{
+            document.getElementById('Display_Exp').style.display = 'block';
+            Display_Exp = true;
+        }
+    });
 }
 
 window.onresize = function(){
@@ -18,3 +28,4 @@ function Canvas_Reset(){
     script.src= 'JavaScript/Game_1.js';  //要載入的js
     head.appendChild(script); 
 }
+

@@ -16,12 +16,12 @@ var Sum_Time = 0;
 var Canvas_width = canvas.getBoundingClientRect().width;
 var Canvas_height = canvas.getBoundingClientRect().height;
 
-// Charactor Data
+// Character Data
 var C_Data = {
-    pos_x: 50,                  // Charactor Position X
-    pos_y : Canvas_height / 2,    // Charactor Position Y
-    Width: 60,                  // Charactor Width
-    Height: 60                  // Charactor Height
+    pos_x: 50,                  // Character Position X
+    pos_y : Canvas_height / 2,  // Character Position Y
+    Width: 60,                  // Character Width
+    Height: 60                  // Character Height
 }; 
 
 // Circle Data
@@ -136,7 +136,7 @@ function EventDown(e){
         var x = Canvas_width / 2 - 100;
         var y = Canvas_height / 2 + 50;
         if(mouse.x >= x && mouse.x <= x + 200 && mouse.y >= y && mouse.y <= y + 100){
-            
+            document.location.href = './faa330bd7195ce433b0359ff56db1a8c54eeded536a30347e243ef76da999a86.html';
         }
     }else{                              // when player is not playing
         var x = Canvas_width / 2 - 100;
@@ -191,10 +191,10 @@ window.addEventListener('keyup', function(e){
 function Timer(t){
     if(Play_Continue_GO == 2){          // when player playing
         if(H_BigThen_W){
-            if(score >= 100)
+            if(score >= 10)
                 Play_Continue_GO =  4;
         }else{
-            if(score >= 200)
+            if(score >= 20)
                 Play_Continue_GO =  4;
         }
             
@@ -207,7 +207,7 @@ function Timer(t){
         }
         TopText(t - time + Sum_Time);
 
-         // --- Charactor
+         // --- Character
         if(IsMouseDown || IsKeyDown){
             var arrow = {
                 pos_X: 70,
@@ -219,7 +219,7 @@ function Timer(t){
             IsKeyDown = false;
         }
         
-        Charactor();
+        Character();
         Circle_Arrow_Draw();
         if(H_BigThen_W)
             CircleData.CircleSpeed = 0.5 + score / 10;
@@ -274,8 +274,8 @@ function TopText(t){
     }
 }
 
-// Charactor Draw
-function Charactor(){
+// Character Draw
+function Character(){
     context.fillStyle = "orange";
     context.fillRect(C_Data.pos_x, C_Data.pos_y, C_Data.Width, C_Data.Height);
     base_image = new Image();
