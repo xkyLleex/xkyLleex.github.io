@@ -1,0 +1,36 @@
+body{
+    font-family: Microsoft JhengHei;
+    background-color: rgba(20, 20, 20, 0.9);
+	user-select: none;
+}
+
+#Center_Title{
+    color: rgb(255, 250, 240);
+    font-size: 80px;
+    text-align: center;
+    animation: AnimationIn 2s linear 0s;
+}
+
+
+@keyframes AnimationIn { 
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 845px){
+	#Center_Title{
+        font-size: 35px;
+	}
+
+    #firework_5{
+        display: none;
+    }
+
+    #firework_6{
+        display: none;
+    }
+}
