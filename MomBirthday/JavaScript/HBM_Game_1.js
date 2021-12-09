@@ -11,11 +11,11 @@ window.onload = function(){
         }
     });
 }
-
+/*
 window.onresize = function(){
     Canvas_Reset();
 }
-
+*/
 function Canvas_Reset(){
     var Canvas_width = document.body.clientWidth * 0.9;
     var Canvas_height = document.body.clientHeight * 0.7;
