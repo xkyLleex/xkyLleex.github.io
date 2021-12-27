@@ -1,0 +1,112 @@
+/* 標籤設置 */
+body{
+    background-color: aqua;
+    font-family:fantasy, Arial;
+    margin: 0px;
+}
+a{
+    text-decoration: none;
+    user-select: none;
+}
+
+/* TOP 排版 */
+.top{
+    width: 100%;
+    background-color: red;
+}
+
+.top > ul{
+    float: right;
+    list-style-type: none;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+.top > ul > li{
+    display: inline;
+}
+
+.top > ul > li > a{
+    background-color: lightgreen;
+    color: black;
+    font-size: 20px;
+    border: 2px solid black;
+    padding: 5px 15px;
+}
+
+.top > ul > li > a:hover{
+    background-color: tomato;
+}
+
+/* 修正選單溢出 */
+.top::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* BOTTOM 排版 */
+.bottom{
+    position: absolute;
+    width: 100%;
+    background-color: #3D3C3C;
+    bottom: 0;
+    color: white;
+    text-align: center;
+}
+
+.bottom > p{
+    font-size: 15px;
+    margin-block-start: 3px;
+    margin-block-end: 0px;
+}
+
+/* 縮小文字 */
+@media (max-width:1265px){
+    .top > ul > li > a{
+        font-size: 15px;
+    }
+}
+
+/* 換置LOGO底下 並改用FLEX排版 */
+@media (max-width:1140px){
+    .top{
+        padding-bottom: 5px;
+    }
+    
+    .top > img{
+        display: block;
+        margin: auto;
+        width: 75%;
+    }
+    
+    .top > ul{
+        display: flex;
+        margin-top: 15px;
+        margin-right: 0px;
+        padding: 2px;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    
+    .top > ul > li{
+        flex: 1;
+        margin: 0 10px;
+    }
+    .top > ul > li > a{
+        display: block;
+        text-align: center;
+    }
+
+}
+
+/* 適應手機介面 TOP 選單 */
+@media (max-width:750px){
+    .top > ul > li > a{
+        margin: 1px;
+        font-size: 10px;
+    }
+    .bottom{
+        font-size: 10px;
+    }
+}

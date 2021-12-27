@@ -1,0 +1,11 @@
+.content{
+    text-align: center;
+}
+.content > img{
+    width: 40%;
+    display: block;
+    margin: auto;
+}
+.bdo-use{
+    font-size: 30px;
+}

@@ -1,0 +1,37 @@
+.content{
+    text-align: center;
+}
+.content table{
+    width: 90%;
+    border-collapse: collapse;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.content table, .content tr, .content td{
+    border: 2px solid black
+}
+
+.content td{
+    padding: 5px;
+} 
+
+.content tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+.content tr:nth-child(odd) {
+    background-color: #11a1e1;
+}
+
+@media (max-width:330px){
+    .content td{
+        font-size: 5px;
+    }
+}
+
+@media (max-height:700px){
+    .bottom{
+        position: static;
+    }
+}
