@@ -74,7 +74,7 @@ a{
         padding-bottom: 5px;
     }
     
-    .top > img{
+    .top > a > img{
         display: block;
         margin: auto;
         width: 75%;
