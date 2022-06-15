@@ -15,6 +15,11 @@
         canvas {
             border: 1px solid black;
         }
+		@media only screen and (max-width:619px){
+			#ImageRecognition{
+				margin-top: 10px;
+			}
+		}
     </style>
 
 </head>
@@ -22,18 +27,23 @@
 <body>
     <div style="margin: auto;">
         <div style="font-size: 35px;">ncnn webassembly yolov5</div>
+		<div style="font-size: 15px;">四訊四甲 3A717026 李光耀</div>
         <div>
             <span>🡲</span>
             <button disabled id="switch-camera-btn" style="height:48px;margin:5px auto;">Switch Camera</button>
             <span>🡰</span>
         </div>
-        <div>↧ ↧ ↧ Camera Stream ↧ ↧ ↧</div>
-        <video id="video" playsinline autoplay></video>
-        <div style="margin-top: 10px;">↧ ↧ ↧ Image Recognition ↧ ↧ ↧</div>
-        <div>
-            <canvas id="canvas" width="640"></canvas>
-        </div>
-        <div>參考此大佬：<a href="https://github.com/nihui/ncnn-webassembly-yolov5" target="_blank">ncnn-webassembly-yolov5</a></div>
+		<div style="display:flex;flex-wrap:wrap;">
+			<div style="flex:1;">
+				<div>↧ ↧ ↧ Camera Stream ↧ ↧ ↧</div>
+				<video id="video" playsinline autoplay></video>
+			</div>
+			<div id="ImageRecognition" style="flex:1;">
+				<div>↧ ↧ ↧ Image Recognition ↧ ↧ ↧</div>
+				<canvas id="canvas" width="300"></canvas>
+			</div>
+		</div>
+        <div>參考大佬：<a href="https://github.com/nihui/ncnn-webassembly-yolov5" target="_blank">ncnn-webassembly-yolov5</a></div>
     </div>
 
 <!-- Read Module Script -->
